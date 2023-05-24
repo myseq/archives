@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MySeq Pages</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  <style>
+    p { color:#FFBF00; letter-spacing: 2.5px;
+	position: relative; left:3%; width: 68%; }
+    h1,h2 { Left 1%; color:white; letter-spacing: 3.8px; }	    
+    html,body { font-family: "Noto Sans", "Noto Sans CJK SC TC", sans-serif; 
+                color:#FFBF00; line-height: 1.68;
+	       	position: relative; Left: 3%; width:68%; height: 100%; }
+    #Main_Left img { float: left; }
+    #Main_Right img { float: right; }
+  </style>
+</head>
+<body bgcolor="black" ng-app="myApp">
+
+<div id="Main_Left">
+   <img src="expert.jpg" alt="myseq" style="width:108px;height:108px;margin:auto;padding:3px;">
+   <div id="Main_Right">
+     <h1>MySeq</h1>
+     <p style="font-size:72%;">This ABC site is fully edited using VI.</p>
+     <p>∞ | <a href="#a">Apps</a> | <a href="#b">Blogs</a> | <a href="#g">Games</a> | <a href="#/">Codes</a> | ∞</p>
+    </div>
+</div>
+
+<p></p>
+<p></p>
+
+<div ng-view></div>
+
+<p></p><hr>
+<p></p>
+
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/a", {
+	template : "<h2>Apps</h2><p><a href='https://github.com/myseq/kev-catalog'>kev-catalog</a></p><p><a href='https://github.com/myseq/kev-dashboard'>kev-dasboard</a></p><p><a href='https://github.com/myseq/ms_patch_tuesday'>ms_patch_tuesday</a></p>"
+    })
+    .when("/b", {
+        template : "<h2>Blogs</h2><p><a href='https://myseq.blogspot.com'>MySeq</a></p>"
+    })
+    .when("/c", {
+        template : "<h2>Codes</h2><p>All the codes are shared at MySeq Github repositories.</p><p><a href='https://github.com/myseq/utils'>Utils</a></p>"
+    })
+    .otherwise({
+        template : "<h2>Online Games</h2><p><a href='https://www.masswerk.at/JavaPac/JS-DoodlePacMan.html'>PacMan</a></p><p><a href='https://loderunnerwebgame.com/game/'>LoadRunner</a></p>"
+    });
+});
+</script>
+
+  
+</body>
+</html>
